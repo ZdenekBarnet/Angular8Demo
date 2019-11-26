@@ -1,0 +1,117 @@
+.left-viewport {
+  height: calc(100% - 80px);
+}
+
+.viewport-item {
+  border-top: 1px solid gray;
+  height: 66px;
+  cursor: pointer;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  background-color: #F5F5F5;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    visibility: hidden;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+    box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+    background-color: #555;
+}
+
+.customerContainer {
+  width: 300px;
+  min-width: 300px;
+  border-right: 1px solid gray;
+}
+
+.searchField {
+  padding-left: 12px;
+  padding-top: 5px;
+  width: calc(100% - 24px);
+  max-height: 80px;
+}
+
+.customerThumbContainer {
+  width: 48px;
+  float: left;
+  padding-top: 9px;
+  padding-left: 10px;
+}
+
+.customerThumbImg {
+  padding-top: 1px;
+  max-width: 48px;
+  -webkit-user-select: none;
+  width: fit-content;
+  border-radius: 50%;
+}
+
+.customerCardContent {
+  width: 200px;
+  float: left;
+  padding: 15px;
+}
+
+.overflowStreet {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 14px;
+}
+
+.detailContainer {
+  width: 600px;
+  padding: 20px;
+}
+
+.buttonToolbar {
+  display: flex;
+  flex-direction:row;
+}
+
+.buttonMargin {
+  margin-right: 10px;
+}
+
+.detailContentContainer {
+  display: flex;
+  flex-direction:column;
+  padding: 10px;
+  padding-top: 20px;
+}
+
+.detailThumbContainer {
+  display: flex;
+  flex-direction: row;
+}
+
+.detailThumbImg {
+  -webkit-user-select: none;
+  width: fit-content;
+  border-radius: 50%;
+}
+
+.pl20 {
+  padding-left: 20px;
+}
+
+.mt20 {
+  margin-top: 20px;
+}
+
+.w100px {
+  width: 100px;
+}
+
+.mapContainer {
+  height: 485px;
+  width: 600px;
+  margin-top: 170px;
+}

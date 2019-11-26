@@ -1,0 +1,32 @@
+<div class="loginContainer">
+<mat-card class="example-card cardContainer">
+  <mat-card-header>
+    <mat-card-title>{{title}}</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+          <mat-form-field appearance="outline" class="width100">
+              <mat-label>{{user}}</mat-label>
+              <input type="text" matInput class="form-control" formControlName="username" id="username" autocomplete="off">
+            </mat-form-field>
+
+        <div class="error" *ngIf="loginForm.controls['username'].hasError('required') && loginForm.controls['username'].touched">{{userRequired}}</div>
+      </div>
+      <div class="form-group">
+          <mat-form-field appearance="outline" class="width100">
+              <mat-label>{{password}}</mat-label>
+              <input type="password" matInput class="form-control" formControlName="password" id="pwd" autocomplete="off">
+            </mat-form-field>
+
+        <div class="error" *ngIf="loginForm.controls['password'].hasError('required') && loginForm.controls['password'].touched">{{passRequired}}</div>
+      </div>
+      <button class="btn btn-success" mat-raised-button color="primary" style="margin-top: 5px;">{{logIn}}</button>
+      <span style="margin-left: 20px">{{help}}</span>
+      <div *ngIf="invalidLogin">
+        <div class="badLogin">{{badLoginInfo}}</div>
+      </div>
+    </form>
+  </mat-card-content>
+</mat-card>
+</div>

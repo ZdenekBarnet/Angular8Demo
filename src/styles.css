@@ -1,0 +1,28 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+@import 'simplebar/dist/simplebar.css';
+
+html, body {
+  height: 100%;
+}
+
+body {
+   margin: 0;
+   font-family: Roboto, "Helvetica Neue", sans-serif;
+  }
+
+.featureContainer {
+  position: absolute;
+  top: 64px;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  flex: 0 0 auto;
+  margin: 0;
+  overflow: hidden;
+}
+
+.width100 {
+  width: 100%;
+}

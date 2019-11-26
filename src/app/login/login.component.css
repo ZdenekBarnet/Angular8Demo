@@ -1,0 +1,25 @@
+.loginContainer {
+  height: 100%;
+  margin-top: 50px;
+}
+
+.cardContainer {
+  width: 300px;
+}
+
+.example-card {
+  max-width: 400px;
+  margin: auto;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active  {
+    -webkit-box-shadow: 0 0 0 30px white inset !important;
+}
+
+.badLogin {
+  padding-top: 10px;
+  color: red;
+}

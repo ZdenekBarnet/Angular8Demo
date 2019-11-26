@@ -1,0 +1,89 @@
+<div class="featureContainer">
+  <div  class="customerContainer">
+    <mat-form-field appearance="outline" class="searchField">
+      <mat-label>{{searchFieldText}}</mat-label>
+      <mat-icon matPrefix>search</mat-icon>
+      <input matInput [(ngModel)]="searchPerson" (keyup)="onChange($event, searchPerson)">
+    </mat-form-field>
+
+    <cdk-virtual-scroll-viewport itemSize="66" class="left-viewport">
+      <div *cdkVirtualFor="let person of users" matRipple class="viewport-item" (click)="onSelectPerson($event, person)"
+        [ngStyle]="{'background-color': person.selected ? '#E0E0E0' : 'white'}">
+        <div class="customerThumbContainer">
+            <img *ngIf="person.thumb" [src]="person.thumb" [alt]="person.lastName" class="customerThumbImg">
+            <img *ngIf="!person.thumb" [src]="defaultUrlCustomerThumb" [alt]="person.lastName" class="customerThumbImg">
+        </div>
+        <div class="customerCardContent">
+          <div>
+              {{person.firstName | titlecase}} {{person.lastName | titlecase}}
+          </div>
+          <div class="overflowStreet">
+              {{person.street}}, {{person.stateName | titlecase}} {{person.postcode}}
+          </div>
+        </div>
+      </div>
+    </cdk-virtual-scroll-viewport>
+  </div>
+
+  <div class="detailContainer">
+    <div class="buttonToolbar">
+      <button class="buttonMargin" mat-raised-button color="primary" type="button" (click)="newPersonClick($event)">Nový kontakt  <mat-icon>person_add</mat-icon></button>
+      <button class="buttonMargin" mat-raised-button color="primary" type="button" (click)="updatePersonClick($event)">Upravit kontakt  <mat-icon>edit</mat-icon></button>
+      <button class="buttonMargin" mat-raised-button color="primary" type="button" (click)="deletePersonClick($event)">Smazat kontakt  <mat-icon>delete</mat-icon></button>
+
+      <button mat-icon-button [matMenuTriggerFor]="menu">
+        <mat-icon>menu</mat-icon>
+      </button>
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item disabled>
+          <mat-icon>group</mat-icon>
+          <span>{{customerCountText}} {{personCount}}</span>
+        </button>
+      </mat-menu>
+    </div>
+    <div class="detailContentContainer">
+      <div class="detailThumbContainer">
+        <img *ngIf="selectedPerson.thumb2" class="detailThumbImg" [src]="selectedPerson.thumb2" alt="Avatar">
+        <img *ngIf="!selectedPerson.thumb2" class="detailThumbImg" [src]="defaultUrlDetailThumb" alt="Avatar">
+        <h2 class="pl20"> {{selectedPerson.firstName | titlecase}} {{selectedPerson.lastName | titlecase}}</h2>
+      </div>
+
+      <mat-expansion-panel class="mt20" expanded="true">
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            {{addressTitle}}
+          </mat-panel-title>
+          <mat-panel-description>
+            {{selectedPerson.street}}, {{selectedPerson.stateName | titlecase}} {{selectedPerson.postcode}}
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+
+        <mat-list>
+          <mat-list-item> <span class="w100px">{{streetTitle}}:</span>{{selectedPerson.street}}</mat-list-item>
+          <mat-list-item> <span class="w100px">{{cityTitle}}:</span> {{selectedPerson.stateName | titlecase}}</mat-list-item>
+          <mat-list-item> <span class="w100px">{{postcodeTitle}}:</span> {{selectedPerson.postcode}}</mat-list-item>
+        </mat-list>
+      </mat-expansion-panel>
+
+      <mat-expansion-panel class="mt20" expanded="true">
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            {{personalDataTitle}}
+          </mat-panel-title>
+          <mat-panel-description>
+            {{contactDataTitle}}
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+
+        <mat-list>
+          <mat-list-item> <span class="w100px">{{phoneTitle}}:</span>{{selectedPerson.phone}}</mat-list-item>
+          <mat-list-item> <span class="w100px">{{emailTitle}}:</span> {{selectedPerson.email}}</mat-list-item>
+          <mat-list-item> <span class="w100px">{{ageTitle}}:</span> {{selectedPerson.age}} let</mat-list-item>
+        </mat-list>
+      </mat-expansion-panel>
+    </div>
+  </div>
+  <agm-map class="mapContainer" [latitude]="latitude" [longitude]="longitude" [zoom]="zoom">
+      <agm-marker [latitude]="latitude" [longitude]="longitude"></agm-marker>
+  </agm-map>
+</div>

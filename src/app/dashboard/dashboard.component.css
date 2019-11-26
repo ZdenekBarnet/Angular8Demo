@@ -1,0 +1,12 @@
+.toolBar{
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 2;
+}
+
+.toolBarButton{
+  margin-right: 10px;
+  margin-left: 50px;
+}

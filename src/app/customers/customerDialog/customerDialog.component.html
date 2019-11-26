@@ -1,0 +1,57 @@
+<h1 mat-dialog-title>{{header}}</h1>
+<div mat-dialog-content>
+    <mat-grid-list cols="5" rowHeight="80px">
+        <mat-grid-tile [colspan]=2 [rowspan]=1>
+            <mat-form-field focused="true" required="true">
+                <mat-label>{{firstNameLabel}}</mat-label>
+                <input matInput [(ngModel)]="data.firstName">
+              </mat-form-field>
+        </mat-grid-tile>
+        <mat-grid-tile [colspan]=2 [rowspan]=1>
+            <mat-form-field required="true">
+                <mat-label>{{lastNameLabel}}</mat-label>
+                <input matInput [(ngModel)]="data.lastName">
+              </mat-form-field>
+        </mat-grid-tile>
+        <mat-grid-tile [colspan]=1 [rowspan]=1>
+          <mat-form-field required="true" style="width: 100px">
+              <mat-label>{{ageLabel}}</mat-label>
+              <input matInput [(ngModel)]="data.age">
+            </mat-form-field>
+      </mat-grid-tile>
+      <mat-grid-tile [colspan]=2 [rowspan]=1>
+        <mat-form-field required="true" >
+            <mat-label>{{strretLabel}}</mat-label>
+            <input matInput [(ngModel)]="data.street">
+          </mat-form-field>
+    </mat-grid-tile>
+    <mat-grid-tile [colspan]=2 [rowspan]=1>
+      <mat-form-field required="true" >
+          <mat-label>{{cityLabel}}</mat-label>
+          <input matInput [(ngModel)]="data.stateName">
+        </mat-form-field>
+  </mat-grid-tile>
+  <mat-grid-tile [colspan]=1 [rowspan]=1>
+    <mat-form-field required="true" style="width: 100px">
+        <mat-label>{{postCodeLabel}}</mat-label>
+        <input matInput [(ngModel)]="data.postcode">
+      </mat-form-field>
+</mat-grid-tile>
+<mat-grid-tile [colspan]=2 [rowspan]=1>
+  <mat-form-field required="true">
+      <mat-label>{{phoneLabel}}</mat-label>
+      <input matInput [(ngModel)]="data.phone">
+    </mat-form-field>
+</mat-grid-tile>
+<mat-grid-tile [colspan]=2 [rowspan]=1>
+  <mat-form-field required="true">
+      <mat-label>{{emailLabel}}</mat-label>
+      <input matInput [(ngModel)]="data.email">
+    </mat-form-field>
+</mat-grid-tile>
+  </mat-grid-list>
+</div>
+<div mat-dialog-actions>
+    <button mat-button [mat-dialog-close]="data" >{{saveButtonLabel}}</button>
+  <button mat-button (click)="onNoClick()">{{cancelButtonLabel}}</button>
+</div>
